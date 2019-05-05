@@ -1,0 +1,1 @@
+swig -python -c++ -o pyopenface_wrap.cpp pyopenface.i
