@@ -4,6 +4,7 @@ import cv2
 import os
 from dist import pyopenface
 
+TEST_VIDEO = 'test.mp4'
 def get_default_intrisic_mat(frame_width, frame_height):
     """ set default camera intrisic parameres, see SequenceCapture::SetCameraIntrinsics for more details.
     Return:
@@ -18,7 +19,7 @@ assert os.path.exists('./model'), 'make sure model dirctory position'
 face_param = pyopenface.FaceModelParameters()
 clnf = pyopenface.WCLNF(face_param.model_location)
 #pyopenface.print_numpy(rgb_img, gray_img)
-cap = cv2.VideoCapture('test.mp4')
+cap = cv2.VideoCapture(TEST_VIDEO)
 while True:
     ret, img = cap.read()
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

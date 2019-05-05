@@ -1,4 +1,6 @@
 # openface python warpper
+this a python3 wrapper for OpenFace.
+## Installation
 1. install swig, wget, unzip, python3, python3-dev
 2. clone OpenFace ```git submodule add https://github.com/TadasBaltrusaitis/OpenFace.git```
 3. install OpenFace ```./install.sh```
@@ -31,5 +33,9 @@ rm CM* -rf && cmake .. && make -j4 install
 cd pyopenface/build && cmake .. && make -j4 install
 cd ..
 ln -s ./dist/model model
+```
+## Test
+replace the **VIDEO_NAME** with your own test video and run
+```
 python3 test.py
 ```
