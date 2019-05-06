@@ -1,7 +1,7 @@
 # openface python warpper
 this a python3 wrapper for OpenFace.
 ## Installation
-1. install swig, wget, unzip, python3, python3-dev
+1. install swig, wget, unzip, python3, python3-dev, libboost-filesystem-dev, libopenblas-dev, libtbb-dev
 2. clone OpenFace ```git submodule add https://github.com/TadasBaltrusaitis/OpenFace.git```
 3. install OpenFace ```./install.sh```
 here, you can run OpenFace demo now, but it's not enough for pyopenface.
