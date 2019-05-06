@@ -39,3 +39,10 @@ replace the **VIDEO_NAME** with your own test video and run
 ```
 python3 test.py
 ```
+#### swig reference documents
+https://mit-crpg.github.io/OpenMOC/devguide/swig.html
+http://web.mit.edu/svn/src/swig-1.3.25/Doc/Manual/SWIGPlus.html#SWIGPlus_nn33
+http://www.swig.org/Doc1.3/SWIG.html#SWIG
+https://scipy-cookbook.readthedocs.io/items/SWIG_NumPy_examples.html
+http://sebastian-mader.net/programming/interfacing-c-c-and-python-using-swig/
+https://scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html
