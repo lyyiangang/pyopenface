@@ -757,6 +757,10 @@ GetPose = _pyopenface.GetPose
 def print_numpy(*args):
     return _pyopenface.print_numpy(*args)
 print_numpy = _pyopenface.print_numpy
+
+def CalcShape3D(clnf_model):
+    return _pyopenface.CalcShape3D(clnf_model)
+CalcShape3D = _pyopenface.CalcShape3D
 # This file is compatible with both classic and new-style classes.
 
 

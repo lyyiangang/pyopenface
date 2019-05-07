@@ -4,7 +4,7 @@ import cv2
 import os
 from dist import pyopenface
 
-TEST_VIDEO = 'test.mp4'
+TEST_VIDEO = '../OpenFace/samples/2015-10-15-15-14.avi'
 def get_default_intrisic_mat(frame_width, frame_height):
     """ set default camera intrisic parameres, see SequenceCapture::SetCameraIntrinsics for more details.
     Return:
@@ -18,7 +18,6 @@ def get_default_intrisic_mat(frame_width, frame_height):
 assert os.path.exists('./model'), 'make sure model dirctory position'
 face_param = pyopenface.FaceModelParameters()
 clnf = pyopenface.WCLNF(face_param.model_location)
-#pyopenface.print_numpy(rgb_img, gray_img)
 cap = cv2.VideoCapture(TEST_VIDEO)
 while True:
     ret, img = cap.read()
@@ -34,6 +33,6 @@ while True:
     landmarks = np.reshape(clnf.detected_landmarks(), (2, -1)).T.astype(np.int32)
     for pt in landmarks:
         cv2.circle(img, tuple(pt), 2, (0, 0, 255))
-    
+    print('3dshape:{}'.format(pyopenface.CalcShape3D(clnf)))
     cv2.imshow('img', img)
     cv2.waitKey(1)

@@ -6,6 +6,7 @@
     #define SWIG_FILE_WITH_INIT
     #include "LandmarkDetectorParameters.h"
     #include "WOpenFace.h"
+    #include <opencv2/core/mat.hpp>
 %}
 
 // Instantiate templates used by example
@@ -22,7 +23,6 @@ namespace std {
 %init %{
   import_array();
 %}
-//%apply(float* ARGOUT_ARRAY2, int DIM1, int DIM2) {(float* landmarks, int nPts, int nDims)};
 
 //typemap for ext_DetectLandmarksInVideo
 %apply (int DIM1, int DIM2, int DIM3, unsigned char* IN_ARRAY3) {(int height, int width, int nChannels, uchar* rgb_img)};
@@ -30,8 +30,6 @@ namespace std {
 
 %rename (DetectLandmarksInVideo) ext_DetectLandmarksInVideo ;
 %inline %{
-    //bool DetectLandmarksInVideo(int height, int width, int nChannels, uchar* rgb_image, uchar* grayscale_image, 
-                                //WCLNF& clnf_model, LandmarkDetector::FaceModelParameters& params)
     bool ext_DetectLandmarksInVideo(int height, int width, int nChannels, uchar* rgb_img,
                         int gheight, int gwidth, uchar* gray_img,
                         WCLNF& clnf_model, LandmarkDetector::FaceModelParameters& params) 
@@ -48,7 +46,7 @@ namespace std {
 %apply(int DIM1, int DIM2, unsigned char* IN_ARRAY2){(int gheight, int gwidth, uchar* gray_img)}
 
 
-%include "../lib/local/LandmarkDetector/include/LandmarkDetectorParameters.h"
+%include "../OpenFace/lib/local/LandmarkDetector/include/LandmarkDetectorParameters.h"
 %include "WOpenFace.h"
 
 %rename (print_numpy) ext_print_numpy ;
@@ -65,4 +63,16 @@ namespace std {
     }
 %}
 
-
+%apply (float ARGOUT_ARRAY2[ANY][ANY]) {(float landmarks_3d[68][3])};
+void CalcShape3D(WCLNF& clnf_model,float landmarks_3d[68][3]);
+%{
+ void CalcShape3D(WCLNF& clnf_model, float landmarks_3d[68][3])
+  {
+    cv::Mat_<float> tmp_3d_landmarks;
+        clnf_model.face_model->pdm.CalcShape3D(tmp_3d_landmarks, clnf_model.face_model->params_local);
+        //tmp_3d_landmarks = tmp_3d_landmarks.reshape(1, 3).t();
+        assert(tmp_3d_landmarks.total() == 68 * 3);
+        std::copy(tmp_3d_landmarks.begin(), tmp_3d_landmarks.end(), &(landmarks_3d[0][0]));
+        
+ }
+%}
