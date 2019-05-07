@@ -5817,10 +5817,10 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
  void CalcShape3D(WCLNF& clnf_model, float landmarks_3d[68][3])
   {
     cv::Mat_<float> tmp_3d_landmarks;
-        clnf_model.face_model->pdm.CalcShape3D(tmp_3d_landmarks, clnf_model.face_model->params_local);
-        //tmp_3d_landmarks = tmp_3d_landmarks.reshape(1, 3).t();
-        assert(tmp_3d_landmarks.total() == 68 * 3);
-        std::copy(tmp_3d_landmarks.begin(), tmp_3d_landmarks.end(), &(landmarks_3d[0][0]));
+    clnf_model.face_model->pdm.CalcShape3D(tmp_3d_landmarks, clnf_model.face_model->params_local);
+    tmp_3d_landmarks = tmp_3d_landmarks.reshape(1, 3).t();
+    assert(tmp_3d_landmarks.total() == 68 * 3);
+    std::copy(tmp_3d_landmarks.begin(), tmp_3d_landmarks.end(), &(landmarks_3d[0][0]));
         
  }
 

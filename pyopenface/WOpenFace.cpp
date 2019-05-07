@@ -46,15 +46,3 @@ void print_numpy(int height, int width, int nChannels, uchar* rgb_img, uchar* gr
     std::cout<<"width:"<<width<<". height:"<<height<<". channels:"<<nChannels<<std::endl;
 }
 
-// void CalcShape3D(int npts, int dim_cor, float* landmarks_3d)//WCLNF& clnf_model, 
-//  {
-// //     if(npts != 68 || dim_cor != 3)
-// //     {
-// //         PyErr_Format(PyExc_ValueError, "Arrays of lengths (%d,%d) given", npts, dim_cor);
-// //         return;
-// //     }
-// //     cv::Mat_<float> tmp_3d_landmarks;
-// //     clnf_model.face_model->pdm.CalcShape3D(tmp_3d_landmarks, clnf_model.face_model->params_local);
-// //     //tmp_3d_landmarks = tmp_3d_landmarks.reshape(1, 3).t();
-// //     std::copy(tmp_3d_landmarks.begin(), tmp_3d_landmarks.end(), landmarks_3d);
-// }
