@@ -1,5 +1,5 @@
-# openface python warpper
-this a python3 wrapper for OpenFace.
+# OpenFace python warpper
+this a python3 wrapper for [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace).
 ## Installation
 1. install swig, wget, unzip, python3, python3-dev, libboost-filesystem-dev, libopenblas-dev, libtbb-dev
 2. clone OpenFace ```git submodule add https://github.com/TadasBaltrusaitis/OpenFace.git```
@@ -40,9 +40,9 @@ replace the **VIDEO_NAME** with your own test video and run
 python3 test.py
 ```
 #### swig reference documents
-https://mit-crpg.github.io/OpenMOC/devguide/swig.html
-http://web.mit.edu/svn/src/swig-1.3.25/Doc/Manual/SWIGPlus.html#SWIGPlus_nn33
-http://www.swig.org/Doc1.3/SWIG.html#SWIG
-https://scipy-cookbook.readthedocs.io/items/SWIG_NumPy_examples.html
-http://sebastian-mader.net/programming/interfacing-c-c-and-python-using-swig/
-https://scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html
+https://mit-crpg.github.io/OpenMOC/devguide/swig.html  
+http://web.mit.edu/svn/src/swig-1.3.25/Doc/Manual/SWIGPlus.html#SWIGPlus_nn33  
+http://www.swig.org/Doc1.3/SWIG.html#SWIG  
+https://scipy-cookbook.readthedocs.io/items/SWIG_NumPy_examples.html  
+http://sebastian-mader.net/programming/interfacing-c-c-and-python-using-swig/  
+https://scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html  
